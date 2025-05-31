@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HybridML-IDS | AI-Powered Cybersecurity</title>
+    
+    <!-- JSON-LD Semantic Metadata -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "HybridML-IDS",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Cross-Platform",
+        "description": "AI-based intrusion detection system combining LSTM, Random Forest, and SVM for enhanced cybersecurity",
+        "featureList": "Anomaly detection, Real-time analysis, Threat classification"
+    }
+    </script>
+    
+    <!-- TailwindCSS with Dark Mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .algorithm-card {
+            transition: all 0.3s ease;
+        }
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
+    <!-- Dark Mode Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')" 
+            class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 z-50 shadow-md">
+        <span class="dark:hidden">🌙</span>
+        <span class="hidden dark:inline">☀️</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm z-40 border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="font-bold text-xl bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                HybridML-IDS
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#overview" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Overview</a>
+                <a href="#architecture" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Architecture</a>
+                <a href="#algorithms" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Algorithms</a>
+                <a href="#implementation" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Implementation</a>
+                <a href="#results" class="hover:text-blue-600 dark:hover:text-blue-400 font-medium">Results</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-24 bg-gradient-to-br from-blue-900 to-gray-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBkPSJNMjggNDRMMCA1MEwwIDUwTDI4IDU2TDU2IDUwTDU2IDUwTDI4IDQ0TDI4IDQ0WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')]"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+                AI-Based Intrusion Detection System
+            </h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Hybrid Machine Learning Approach Combining LSTM, Random Forest & SVM for Enhanced Cybersecurity
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#implementation" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                    View Implementation
+                </a>
+                <a href="#results" class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors border border-white/20">
+                    See Results
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Next-Gen Cybersecurity Framework</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Problem Statement</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Modern cyber threats require adaptive detection systems that combine:
+                    </p>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Real-time anomaly detection capabilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>High-accuracy classification of attack patterns</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Adaptability to evolving threat landscapes</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Our Solution</h3>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden mb-4">
+                        <div class="w-full h-full flex items-center justify-center text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        HybridML-IDS combines the temporal pattern recognition of LSTM networks with the ensemble learning of Random Forest and the high-dimensional classification power of SVM.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="mb-20 py-12 bg-gray-100 dark:bg-gray-800 rounded-xl">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">System Architecture</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Data Collection -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-blue-500 algorithm-card">
+                        <div class="text-blue-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Data Collection Layer</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Real-time network traffic capture using packet sniffers and flow-based collectors with preprocessing for feature extraction.
+                        </p>
+                    </div>
+                    
+                    <!-- Hybrid Model -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-emerald-500 algorithm-card">
+                        <div class="text-emerald-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Hybrid Analysis Layer</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Parallel processing with LSTM for temporal patterns, Random Forest for feature importance, and SVM for classification.
+                        </p>
+                    </div>
+                    
+                    <!-- Decision -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md border-t-4 border-purple-500 algorithm-card">
+                        <div class="text-purple-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Decision Layer</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Weighted ensemble voting system with dynamic confidence thresholds for final classification.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Architecture Diagram -->
+                <div class="mt-12 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">HybridML-IDS Architecture Diagram</h3>
+                        <button class="px-4 py-2 bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 rounded-lg text-sm font-medium">
+                            View Full Schema
+                        </button>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-full text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Algorithms Section -->
+        <section id="algorithms" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Hybrid Algorithm Integration</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- LSTM Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 algorithm-card">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-4">
+                        <h3 class="text-xl font-semibold text-white">LSTM Network</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Temporal Analysis</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Processes sequential network traffic data to identify time-dependent attack patterns with 92.3% recall for DDoS detection.
+                        </p>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="font-medium">Key Parameters:</span>
+                            <ul class="list-disc pl-5 mt-1 space-y-1">
+                                <li>2 LSTM layers (256, 128 units)</li>
+                                <li>Sequence length: 30 packets</li>
+                                <li>Dropout: 0.3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Random Forest Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 algorithm-card">
+                    <div class="bg-gradient-to-r from-emerald-600 to-emerald-800 p-4">
+                        <h3 class="text-xl font-semibold text-white">Random Forest</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-emerald-200 dark:text-emerald-900">Ensemble Learning</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            200 decision trees with max depth 20 achieve 94.1% accuracy in classifying 23 attack types from NSL-KDD dataset.
+                        </p>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="font-medium">Key Parameters:</span>
+                            <ul class="list-disc pl-5 mt-1 space-y-1">
+                                <li>n_estimators: 200</li>
+                                <li>max_depth: 20</li>
+                                <li>min_samples_split: 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SVM Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 algorithm-card">
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-4">
+                        <h3 class="text-xl font-semibold text-white">Support Vector Machine</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">High-Dim Classification</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            RBF kernel SVM with C=1.0 achieves 91.7% precision in detecting novel attack patterns in high-dimensional feature space.
+                        </p>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            <span class="font-medium">Key Parameters:</span>
+                            <ul class="list-disc pl-5 mt-1 space-y-1">
+                                <li>Kernel: RBF</li>
+                                <li>C: 1.0</li>
+                                <li>gamma: 'scale'</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Section -->
+        <section id="implementation" class="mb-20 py-12 bg-gray-100 dark:bg-gray-800 rounded-xl">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Technical Implementation</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Code Architecture</h3>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-medium mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Data Preprocessing Pipeline
+                            </h4>
+                            <pre class="bg-gray-800 dark:bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm"><code class="language-python">class DataPreprocessor:
+    def __init__(self):
+        self.scaler = RobustScaler()
+        self.transformer = PowerTransformer()
+        
+    def preprocess(self, X):
+        # Handle missing values
+        X = X.dropna()
+        # Scale features
+        X_scaled = self.scaler.fit_transform(X)
+        # Power transform
+        X_transformed = self.transformer.fit_transform(X_scaled)
+        return X_transformed</code></pre>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Hybrid Model Ensemble
+                            </h4>
+                            <pre class="bg-gray-800 dark:bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm"><code class="language-python">class HybridIDSModel:
+    def predict(self, X):
+        # Get individual model predictions
+        rf_proba = self.rf.predict_proba(X)
+        svm_proba = self.svm.predict_proba(X)
+        lstm_proba = self.lstm.predict(X.reshape(1, -1))
+        
+        # Dynamic weighting based on F1 scores
+        total_weight = self.rf_f1 + self.svm_f1 + self.lstm_f1
+        hybrid_proba = (rf_proba*self.rf_f1 + 
+                       svm_proba*self.svm_f1 + 
+                       lstm_proba*self.lstm_f1) / total_weight
+        
+        return np.argmax(hybrid_proba, axis=1)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-600">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Technology Stack</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium mb-1 flex items-center">
+                                    <span class="w-4 h-4 bg-blue-500 rounded-full mr-2"></span>
+                                    Core Framework
+                                </h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full dark:bg-blue-900 dark:text-blue-200">Python 3.9</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full dark:bg-blue-900 dark:text-blue-200">Scikit-learn</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full dark:bg-blue-900 dark:text-blue-200">TensorFlow 2.8</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium mb-1 flex items-center">
+                                    <span class="w-4 h-4 bg-purple-500 rounded-full mr-2"></span>
+                                    Data Processing
+                                </h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full dark:bg-purple-900 dark:text-purple-200">Pandas</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full dark:bg-purple-900 dark:text-purple-200">NumPy</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full dark:bg-purple-900 dark:text-purple-200">Scipy</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium mb-1 flex items-center">
+                                    <span class="w-4 h-4 bg-emerald-500 rounded-full mr-2"></span>
+                                    Deployment
+                                </h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full dark:bg-emerald-900 dark:text-emerald-200">Docker</span>
+                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full dark:bg-emerald-900 dark:text-emerald-200">FastAPI</span>
+                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full dark:bg-emerald-900 dark:text-emerald-200">Redis</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium mb-2">Performance Metrics</h4>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div class="bg-gray-100 dark:bg-gray-600 p-3 rounded-lg">
+                                    <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">94.7%</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-300">Accuracy</div>
+                                </div>
+                                <div class="bg-gray-100 dark:bg-gray-600 p-3 rounded-lg">
+                                    <div class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">92.3%</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-300">Recall</div>
+                                </div>
+                                <div class="bg-gray-100 dark:bg-gray-600 p-3 rounded-lg">
+                                    <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">95.1%</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-300">Precision</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Experimental Results</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Comparative Analysis</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Model</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Accuracy</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">F1-Score</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">LSTM Only</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">89.2%</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">88.7%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">Random Forest</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">91.5%</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">90.3%</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">SVM</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">90.1%</td>
+                                    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">89.8%</td>
+                                </tr>
+                                <tr class="bg-blue-50 dark:bg-blue-900/30">
+                                    <td class="px-4 py-3 whitespace-nowrap text-sm font-bold text-blue-600 dark:text-blue-400">HybridML-IDS</td>
+                                    <td class="px-4 py-3 text-sm font-bold text-blue-600 dark:text-blue-400">94.7%</td>
+                                    <td class="px-4 py-3 text-sm font-bold text-blue-600 dark:text-blue-400">93.9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Attack Detection Rates</h3>
+                    <div class="h-64 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-full text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 mt-4 text-center text-xs">
+                        <div class="bg-blue-500 text-white p-1 rounded">DDoS (96%)</div>
+                        <div class="bg-emerald-500 text-white p-1 rounded">PortScan (94%)</div>
+                        <div class="bg-purple-500 text-white p-1 rounded">BruteForce (92%)</div>
+                        <div class="bg-amber-500 text-white p-1 rounded">Zero-Day (87%)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">HybridML-IDS</h3>
+                    <p class="text-sm">
+                        Advanced AI-based intrusion detection system combining multiple machine learning approaches for comprehensive cybersecurity.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Research Paper</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">GitHub Repository</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Dataset</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Team</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Dr. Smith (Advisor)</li>
+                        <li>MIS Research Group</li>
+                        <li>Cybersecurity Lab</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <address class="not-italic text-sm">
+                        <p>Computer Science Dept</p>
+                        <p>University Name</p>
+                        <p>contact@hybridml-ids.edu</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center text-gray-400">
+                <p>© 2025 HybridML-IDS Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

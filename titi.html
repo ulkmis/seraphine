@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HybridML-IDS | AI-Powered Cybersecurity Detection System</title>
+    
+    <!-- Enhanced SEO Metadata -->
+    <meta name="description" content="Hybrid machine learning intrusion detection system combining LSTM, Random Forest and SVM algorithms for enhanced network security">
+    <meta name="keywords" content="AI cybersecurity, intrusion detection, machine learning, LSTM, Random Forest, SVM">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "HybridML-IDS",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Cross-Platform",
+        "description": "AI-based intrusion detection system combining LSTM temporal analysis with Random Forest and SVM classifiers",
+        "featureList": [
+            "Real-time anomaly detection",
+            "Multi-algorithm ensemble",
+            "Adaptive threat classification",
+            "Automated reporting"
+        ],
+        "author": {
+            "@type": "ResearchProject",
+            "name": "MIS Cybersecurity Team"
+        }
+    }
+    </script>
+    
+    <!-- TailwindCSS with Dark Mode -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    colors: {
+                        primary: {
+                            600: '#2563eb',
+                            700: '#1d4ed8'
+                        },
+                        secondary: {
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* Custom animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .algorithm-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .document-card {
+            border-left: 4px solid;
+            transition: all 0.2s ease;
+        }
+        .document-card:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Accessible focus states */
+        a:focus, button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans min-h-screen flex flex-col">
+    <!-- Dark Mode Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark'); localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));" 
+            class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 z-50 shadow-md focus:outline-none"
+            aria-label="Toggle dark mode">
+        <span class="dark:hidden">🌙</span>
+        <span class="hidden dark:inline">☀️</span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm z-40 border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="font-bold text-xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                HybridML-IDS
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#overview" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium">Overview</a>
+                <a href="#documents" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium">Documents</a>
+                <a href="#team" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium">Team</a>
+                <a href="#implementation" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium">Implementation</a>
+                <a href="#results" class="hover:text-primary-600 dark:hover:text-primary-400 font-medium">Results</a>
+            </div>
+            <button class="md:hidden focus:outline-none" aria-label="Mobile menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-24 bg-gradient-to-br from-gray-900 to-primary-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBkPSJNMjggNDRMMCA1MEwwIDUwTDI4IDU2TDU2IDUwTDU2IDUwTDI4IDQ0TDI4IDQ0WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+')]"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+                AI-Powered Intrusion Detection
+            </h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Hybrid machine learning system combining LSTM temporal analysis with ensemble classifiers for superior threat detection
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#documents" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors focus:ring-2 focus:ring-primary-300">
+                    View Project Documents
+                </a>
+                <a href="#implementation" class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors border border-white/20 focus:ring-2 focus:ring-white/30">
+                    Technical Implementation
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-16">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Advanced Cybersecurity Framework</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    A multi-layered approach combining temporal pattern recognition with high-accuracy classification
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">Research Problem</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Modern cyber threats require adaptive systems that address:
+                    </p>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-secondary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span><strong>Evolving attack vectors:</strong> Zero-day exploits bypassing signature-based detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-secondary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span><strong>High false positives:</strong> Existing systems generate excessive alerts (EPA QA Handbook, 2023)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-secondary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span><strong>Skill gaps:</strong> 68% of security teams lack ML expertise (NIST SP 800-181)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">Our Solution</h3>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden mb-4 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">HybridML architecture diagram</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Combines <strong>LSTM networks</strong> (temporal patterns), <strong>Random Forest</strong> (feature importance), and <strong>SVM</strong> (high-dim classification) with dynamic ensemble weighting.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Project Documentation</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Complete repository of design documents, meeting notes, and research artifacts
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Team Documents -->
+                <div class="document-card border-l-primary-500 bg-white dark:bg-gray-800 p-6 rounded-r-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="p-2 rounded-full bg-primary-100 dark:bg-primary-900/50 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold">Team Documents</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <a href="#" class="hover:text-primary-600 dark:hover:text-primary-400">Team Contract</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <a href="#" class="hover:text-primary-600 dark:hover:text-primary-400">Meeting Notes</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An advanced citizen science platform using multi-granularity frameworks for collaborative research." />
+  <meta name="keywords" content="Citizen Science, Research Platform, Collaborative Framework, Multi-Granularity, DisruptiveTech" />
+  <meta name="author" content="MIS Research Team" />
+  <title>DisruptiveTech | Multi-Granularity Citizen Science Platform</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DisruptiveTech Citizen Science Platform",
+    "description": "Advanced multi-granularity framework for collaborative research documentation",
+    "url": "https://yourdomain.com",
+    "author": {
+      "@type": "Organization",
+      "name": "MIS Research Team"
+    },
+    "datePublished": "2025-05-26",
+    "applicationCategory": "ResearchPlatform"
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    .prose { max-width: 80ch; }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans min-h-screen flex flex-col transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold gradient-text">DisruptiveTech</a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#overview" class="hover:text-blue-600 dark:hover:text-blue-400">Overview</a>
+        <a href="#requirements" class="hover:text-blue-600 dark:hover:text-blue-400">Requirements</a>
+        <a href="#documents" class="hover:text-blue-600 dark:hover:text-blue-400">Documents</a>
+        <a href="#implementation" class="hover:text-blue-600 dark:hover:text-blue-400">Implementation</a>
+        <a href="#team" class="hover:text-blue-600 dark:hover:text-blue-400">Team</a>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path id="theme-icon" fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0..." clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="overview" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <span class="gradient-text">Multi-Granularity</span> Joint Computing Framework
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+        A modern, structured implementation for Citizen Science Project Management
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-12 prose dark:prose-invert space-y-20">
+
+    <!-- Purpose -->
+    <section id="purpose">
+      <h2 class="text-3xl font-bold mb-6 border-b pb-2">1. Website Purpose & Users</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Primary Users</h3>
+          <ul class="space-y-2 list-inside list-disc">
+            <li>Development team (5 MIS students)</li>
+            <li>Instructor (for evaluation)</li>
+            <li>Client (scientist)</li>
+            <li>Research team</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">User Requirements</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Transparent task and job coordination</li>
+            <li>Multi-level access rights and data visibility</li>
+            <li>Secure and efficient collaboration</li>
+            <li>Tracking contributions and project milestones</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Functional Requirements -->
+    <section id="requirements">
+      <h2 class="text-3xl font-bold mb-6 border-b pb-2">2. Functional Requirements</h2>
+      <ul class="list-disc pl-5 space-y-3">
+        <li><strong>Secure User Authentication & Role Management:</strong> Users log in/register with role-based access (admin, contributor, evaluator).</li>
+        <li><strong>Project Lifecycle Management:</strong> Create, assign, and track projects and tasks with status and deadlines.</li>
+        <li><strong>Document Collaboration:</strong> Real-time collaborative editing and version control.</li>
+        <li><strong>Contribution Analytics:</strong> Visual dashboards showing user contributions, task completion rates, etc.</li>
+        <li><strong>Notifications & Messaging:</strong> Alert users to updates, task changes, and deadlines.</li>
+        <li><strong>Multi-granularity Control:</strong> Role-specific visibility for fine-grained control of research data.</li>
+      </ul>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents">
+      <h2 class="text-3xl font-bold mb-6 border-b pb-2">3. Documents</h2>
+      <p class="mb-6">
+        The platform provides access to a comprehensive set of documents essential for effective citizen science collaboration:
+      </p>
+      <ul class="list-disc pl-5 space-y-3">
+        <li><strong>Project Proposals:</strong> Detailed research project plans, goals, and scopes.</li>
+        <li><strong>Research Papers:</strong> Published papers and preprints related to ongoing and past projects.</li>
+        <li><strong>Data Sets:</strong> Curated datasets collected from various citizen science contributions.</li>
+        <li><strong>Task Guidelines:</strong> Instructions and protocols for task completion at different granularity levels.</li>
+        <li><strong>Meeting Minutes:</strong> Summaries of team discussions and decision points.</li>
+        <li><strong>Versioned Documentation:</strong> Maintains history of changes to important documents ensuring traceability.</li>
+      </ul>
+      <p class="mt-6 text-gray-600 dark:text-gray-400 italic">
+        All documents are securely stored and access-controlled to maintain confidentiality and integrity.
+      </p>
+    </section>
+
+    <!-- Implementation Section -->
+    <section id="implementation">
+      <h2 class="text-3xl font-bold mb-6 border-b pb-2">4. Implementation</h2>
+      <p class="mb-6">
+        The platform implementation focuses on modular, scalable architecture to accommodate evolving research needs:
+      </p>
+      <ul class="list-disc pl-5 space-y-3">
+        <li><strong>Technology Stack:</strong> 
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Frontend: React with Tailwind CSS for responsive UI</li>
+            <li>Backend: Node.js with Express for API services</li>
+            <li>Database: PostgreSQL for relational data, MongoDB for document storage</li>
+            <li>Authentication: OAuth 2.0 / JWT tokens for secure user access</li>
+            <li>Collaboration: WebSockets for real-time updates and notifications</li>
+          </ul>
+        </li>
+        <li><strong>Deployment:</strong> Cloud-based (AWS/GCP/Azure) with CI/CD pipelines for seamless updates.</li>
+        <li><strong>Security:</strong> End-to-end encryption for data in transit and at rest, multi-factor authentication.</li>
+        <li><strong>Scalability:</strong> Microservices architecture enabling modular upgrades and horizontal scaling.</li>
+        <li><strong>Accessibility:</strong> Compliance with WCAG 2.1 standards to ensure usability by all researchers.</li>
+      </ul>
+      <p class="mt-6">
+        Future expansions include AI-assisted task assignment and blockchain-based data provenance.
+      </p>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+      <h2 class="text-3xl font-bold mb-6 border-b pb-2">5. Team</h2>
+      <p class="mb-6">
+        The project is driven by a multidisciplinary team combining expertise in MIS, software development, and scientific research:
+      </p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="mx-auto rounded-full w-24 h-24 mb-4 object-cover" />
+          <h3 class="text-xl font-semibold">John Doe</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Project Manager</p>
+          <p class="text-sm">Oversees project progress and ensures milestone completion on schedule.</p>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Jane Smith" class="mx-auto rounded-full w-24 h-24 mb-4 object-cover" />
+          <h3 class="text-xl font-semibold">Jane Smith</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Lead Developer</p>
+          <p class="text-sm">Architects and builds the platform’s frontend and backend solutions.</p>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm">
+          <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Samuel Lee" class="mx-auto rounded-full w-24 h-24 mb-4 object-cover" />
+          <h3 class="text-xl font-semibold">Samuel Lee</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Data Scientist</p>
+          <p class="text-sm">Analyzes contributions and provides insights to optimize research outcomes.</p>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm">
+          <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emily Davis" class="mx-auto rounded-full w-24 h-24 mb-4 object-cover" />
+          <h3 class="text-xl font-semibold">Emily Davis</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">UX/UI Designer</p>
+          <p class="text-sm">Designs intuitive user interfaces and enhances user experience across devices.</p>
+        </div>
+        <!-- Team Member 5 -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center shadow-sm">
+          <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Michael Chen" class="mx-auto rounded-full w-24 h-24 mb-4 object-cover" />
+          <h3 class="text-xl font-semibold">Michael Chen</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Research Analyst</p>
+          <p class="text-sm">Coordinates data collection protocols and validates scientific accuracy.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-600 dark:text-gray-400">
+      &copy; 2025 DisruptiveTech Platform. Developed by MIS Research Team.
+    </div>
+  </footer>
+
+  <!-- Dark Mode Toggle Script -->
+  
+   
+
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

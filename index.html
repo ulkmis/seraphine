@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DisruptiveTech | Multi-Granularity Citizen Science Platform</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DisruptiveTech Citizen Science Platform",
+    "description": "Advanced multi-granularity framework for collaborative research documentation",
+    "author": {
+      "@type": "Organization",
+      "name": "MIS Research Team"
+    },
+    "datePublished": "2025-05-26",
+    "applicationCategory": "ResearchPlatform"
+  }
+  </script>
+
+  <!-- Tailwind with Dark Mode Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    .prose {
+      max-width: 80ch;
+    }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    }
+  </style>
+</head>
+<body
+  class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col"
+>
+  <!-- Navigation -->
+  <header
+    role="banner"
+    class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
+  >
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold gradient-text" aria-label="DisruptiveTech Home">DisruptiveTech</a>
+
+      <nav
+        class="hidden md:flex space-x-8"
+        aria-label="Primary navigation"
+        role="navigation"
+      >
+        <a
+          href="#purpose"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+          aria-current="page"
+          >Purpose</a
+        >
+        <a
+          href="#requirements"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >Requirements</a
+        >
+        <a
+          href="#documents"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >Documents</a
+        >
+        <a
+          href="#implementation"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >Implementation</a
+        >
+      </nav>
+
+      <button
+        id="theme-toggle"
+        aria-label="Toggle dark mode"
+        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            id="theme-icon"
+            fill-rule="evenodd"
+            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section
+    class="py-20 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900"
+    role="region"
+    aria-label="Introduction"
+  >
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <span class="gradient-text">Multi-Granularity</span> Joint Computing Framework
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+      >
+        A modern, structured implementation for Citizen Science Project Management
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-12 prose" role="main">
+    <!-- Purpose & Users -->
+    <section id="purpose" class="mb-16" aria-labelledby="purpose-title">
+      <h2
+        id="purpose-title"
+        class="text-3xl font-bold mb-6 border-b pb-2 border-gray-200 dark:border-gray-700"
+      >
+        1. Website Purpose & Users
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Primary Users</h3>
+          <ul class="space-y-2">
+            <!-- List items with check icons -->
+            <li class="flex items-start">
+              <svg
+                class="h-5 w-5 text-green-500 mr-2 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Development team (5 MIS students)
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="h-5 w-5 text-green-500 mr-2 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Instructor (for evaluation)
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="h-5 w-5 text-green-500 mr-2 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Client (scientist)
+            </li>
+            <li class="flex items-start">
+              <svg
+                class="h-5 w-5 text-green-500 mr-2 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Research team
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-4">User Requirements</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+            <li>Transparent task and job coordination</li>
+            <li>Multi-level access rights and data visibility</li>
+            <li>Secure and efficient collaboration on research documentation</li>
+            <li>Tracking contributions and project milestones</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Functional Requirements -->
+    <section
+      id="requirements"
+      class="mb-16"
+      aria-labelledby="requirements-title"
+    >
+      <h2
+        id="requirements-title"
+        class="text-3xl font-bold mb-6 border-b pb-2 border-gray-200 dark:border-gray-700"
+      >
+        2. Functional Requirements
+      </h2>
+
+      <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 max-w-3xl">
+        <li>User registration and authentication with role management</li>
+        <li>Project and task creation, assignment, and tracking</li>
+        <li>Hierarchical data management for multi-granularity documentation</li>
+        <li>Real-time notifications and status updates</li>
+        <li>Version control for project documents</li>
+        <li>Reporting and analytics dashboard</li>
+      </ul>
+    </section>
+
+    <!-- Documents & Tasks -->
+    <section id="documents" class="mb-16" aria-labelledby="documents-title">
+      <h2
+        id="documents-title"
+        class="text-3xl font-bold mb-6 border-b pb-2 border-gray-200 dark:border-gray-700"
+      >
+        3. Documents & Tasks Management
+      </h2>
+
+      <p class="mb-6">
+        The platform supports various document types including:
+      </p>
+      <ul class="list-disc list-inside space-y-2 max-w-3xl">
+        <li>Research Proposals</li>
+        <li>Field Data Collection Sheets</li>
+        <li>Experiment Results and Reports</li>
+        <li>Collaborative Notes and Annotations</li>
+        <li>Publication Drafts</li>
+      </ul>
+
+      <p class="mt-8">
+        Task management is integrated with documents, enabling multi-level
+        tracking from individual data entries up to aggregated project summaries.
+      </p>
+    </section>
+
+    <!-- Implementation -->
+    <section
+      id="implementation"
+      class="mb-16"
+      aria-labelledby="implementation-title"
+    >
+      <h2
+        id="implementation-title"
+        class="text-3xl font-bold mb-6 border-b pb-2 border-gray-200 dark:border-gray-700"
+      >
+        4. Implementation Notes
+      </h2>
+
+      <p class="mb-4">
+        The platform is implemented as a web application leveraging:
+      </p>
+      <ul class="list-disc list-inside space-y-2 max-w-3xl">
+        <li>Modern frontend frameworks with responsive design</li>
+        <li>RESTful APIs for backend communication</li>
+        <li>Robust database schemas supporting multi-granularity data</li>
+        <li>Secure authentication and authorization mechanisms</li>
+        <li>Real-time collaboration features using WebSocket or similar tech</li>
+      </ul>
+
+      <p class="mt-6">
+        Additional considerations include performance optimization for large
+        datasets and modular design for future extensibility.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    role="contentinfo"
+    class="bg-gray-100 dark:bg-gray-800 py-6 mt-auto border-t border-gray-200 dark:border-gray-700"
+  >
+    <div class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400 text-sm">
+      &copy; 2025 DisruptiveTech Citizen Science Platform. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Simple dark mode toggle script
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Load saved theme on page load
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+  </script>
+</body>
+</html>

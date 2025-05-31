@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Architecture & Implementation Blueprint</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold text-blue-600">SmartDocSystem</div>
+      <ul class="flex space-x-6 font-medium text-gray-700">
+        <li><a href="#system-overview" class="hover:text-blue-600">Overview</a></li>
+        <li><a href="#implementation-blueprint" class="hover:text-blue-600">Implementation</a></li>
+        <li><a href="#multi-granularity" class="hover:text-blue-600">Granularity</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-10 space-y-16">
+    
+    <!-- 1. System Overview & Architectural Design -->
+    <section id="system-overview">
+      <h2 class="text-3xl font-bold mb-6">1. System Overview & Architectural Design</h2>
+      <div class="grid gap-8">
+        
+        <!-- Core Concept Card -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">1.1 Core Concept</h3>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>Fine-grained (task-level) and coarse-grained (workflow-level) computation</li>
+            <li>Hybrid problem-solving mechanisms (deterministic + heuristic)</li>
+            <li>Distributed knowledge graphs for stakeholder/document mapping</li>
+          </ul>
+        </div>
+
+        <!-- Technology Stack Card -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-4">1.2 Technology Stack</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm border-collapse">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="border px-4 py-2 text-left">Layer</th>
+                  <th class="border px-4 py-2 text-left">Technologies</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="border px-4 py-2 font-medium">Frontend</td><td class="border px-4 py-2">React.js, Next.js, TailwindCSS</td></tr>
+                <tr class="bg-gray-50"><td class="border px-4 py-2 font-medium">Document Mgmt</td><td class="border px-4 py-2">Git-LFS, MDX/Markdown</td></tr>
+                <tr><td class="border px-4 py-2 font-medium">Data Modeling</td><td class="border px-4 py-2">Neo4j, JSON-LD</td></tr>
+                <tr class="bg-gray-50"><td class="border px-4 py-2 font-medium">Automation</td><td class="border px-4 py-2">GitHub Actions, Pandoc</td></tr>
+                <tr><td class="border px-4 py-2 font-medium">Search</td><td class="border px-4 py-2">Algolia, Pagefind</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Implementation Blueprint -->
+    <section id="implementation-blueprint">
+      <h2 class="text-3xl font-bold mb-6">2. Implementation Blueprint</h2>
+      <div class="bg-white shadow-md rounded-lg p-6 space-y-4">
+        <h3 class="text-xl font-semibold">2.1 Static Website Architecture</h3>
+        <p class="italic text-gray-700">Diagram & Code sections to be added here.</p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2">
+          <li>Zero-JS Mode: Progressive enhancement using <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">&lt;details&gt;&lt;summary&gt;</code></li>
+          <li>Automated PDF Export: Markdown → PDF via Pandoc and GitHub Actions</li>
+          <li>Semantic Metadata: Embedded JSON-LD for SEO</li>
+          <li>Dark Mode Ready: Extendable using Tailwind dark variant</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Multi-Granularity Document System -->
+    <section id="multi-granularity">
+      <h2 class="text-3xl font-bold mb-6">3. Multi-Granularity Document System</h2>
+
+      <!-- Granularity Levels Card -->
+      <div class="bg-white shadow-md rounded-lg p-6 mb-10">
+        <h3 class="text-xl font-semibold mb-4">3.1 Granularity Levels</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-sm border-collapse">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="border px-4 py-2 text-left">Granularity</th>
+                <th class="border px-4 py-2 text-left">Content Type</th>
+                <th class="border px-4 py-2 text-left">Example</th>
+                <th class="border px-4 py-2 text-left">Tech Implementation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white"><td class="border px-4 py-2 font-medium">Coarse</td><td class="border px-4 py-2">Project Overview</td><td class="border px-4 py-2">System Description</td><td class="border px-4 py-2">Homepage (React/MDX)</td></tr>
+              <tr class="bg-gray-50"><td class="border px-4 py-2 font-medium">Medium</td><td class="border px-4 py-2">Design Docs</td><td class="border px-4 py-2">Personas, Scenarios</td><td class="border px-4 py-2">Collapsible Sections</td></tr>
+              <tr><td class="border px-4 py-2 font-medium">Fine</td><td class="border px-4 py-2">Atomic Notes</td><td class="border px-4 py-2">Meeting Records</td><td class="border px-4 py-2">Git-tracked Markdown</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Problem Solving Mechanism Card -->
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-xl font-semibold mb-4">3.2 Problem-Solving Mechanism</h3>
+        <pre class="bg-gray-900 text-green-200 p-4 rounded overflow-x-auto text-sm">
+<code>def solve_problem(query):
+    granularity = classify_granularity(query)
+    if granularity == "coarse":
+        return knowledge_graph_query(query)
+    else:
+        return full_text_search(query)</code>
+        </pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow-inner mt-10 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 SmartDocSystem. All rights reserved.
+  </footer>
+
+</body>
+</html>

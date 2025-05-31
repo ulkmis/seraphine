@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benz Car Spare Parts Kigali | Genuine Mercedes Parts in Rwanda</title>
+    <meta name="description" content="Authorized dealer of genuine Mercedes-Benz spare parts in Kigali, Rwanda. Quality parts with warranty and expert installation services.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/benz-showroom.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .part-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .part-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .part-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .badge-original {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .contact-info-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: white;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+                background-attachment: scroll;
+            }
+            
+            .section-title::after {
+                width: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/benz-logo.png" alt="Benz Spare Parts Logo" height="40" class="me-2">
+                Benz Spare Parts Kigali
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#parts">Spare Parts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <form class="d-flex">
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="Search parts..." aria-label="Search">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#" class="btn btn-outline-primary">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 fw-bold mb-4">Genuine Mercedes-Benz Spare Parts in Kigali</h1>
+                    <p class="lead mb-5">Premium quality parts with warranty. Expert advice and installation services for all Mercedes-Benz models.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="#parts" class="btn btn-primary btn-lg px-4">
+                            <i class="bi bi-gear me-2"></i> Browse Parts
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4">
+                            <i class="bi bi-telephone me-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i class="bi bi-shield-check feature-icon"></i>
+                        <h3>Genuine Parts</h3>
+                        <p>Authentic Mercedes-Benz parts with manufacturer warranty for optimal performance and longevity.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i class="bi bi-tools feature-icon"></i>
+                        <h3>Expert Installation</h3>
+                        <p>Certified technicians with specialized training in Mercedes-Benz vehicles for perfect fit and function.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i class="bi bi-truck feature-icon"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Same-day delivery available in Kigali for most in-stock parts. Nationwide shipping options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <h2 class="text-center section-title">About Our Company</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="assets/workshop.jpg" alt="Our Workshop" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Your Trusted Mercedes-Benz Parts Specialist</h3>
+                    <p>Founded in 2010, Benz Car Spare Parts Kigali has grown to become Rwanda's premier supplier of genuine Mercedes-Benz spare parts. Our mission is to provide vehicle owners with access to high-quality parts that meet the exacting standards of Mercedes-Benz engineering.</p>
+                    <p>Our team consists of factory-trained professionals with decades of combined experience working exclusively with Mercedes-Benz vehicles. We understand the importance of using the right parts to maintain your vehicle's performance, safety, and value.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#contact" class="btn btn-primary">Visit Our Showroom</a>
+                        <a href="#" class="btn btn-outline-secondary">Our Certifications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="services">
+        <div class="container">
+            <h2 class="text-center section-title">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-search-heart display-4 text-primary mb-3"></i>
+                            <h4>Parts Identification</h4>
+                            <p>Not sure what part you need? Our experts can help identify the correct part using your VIN or vehicle details.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-gear-wide-connected display-4 text-primary mb-3"></i>
+                            <h4>Professional Installation</h4>
+                            <p>Our certified technicians provide expert installation services using manufacturer-approved procedures.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-clipboard2-pulse display-4 text-primary mb-3"></i>
+                            <h4>Vehicle Diagnostics</h4>
+                            <p>State-of-the-art diagnostic equipment to accurately identify issues with your Mercedes-Benz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parts Section -->
+    <section class="py-5" id="parts">
+        <div class="container">
+            <h2 class="text-center section-title">Popular Spare Parts</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="part-card card h-100">
+                        <img src="assets/engine-part.jpg" class="card-img-top part-img" alt="Engine Parts">
+                        <div class="card-body">
+                            <span class="badge badge-original mb-2">Genuine</span>
+                            <h5 class="card-title">Engine Components</h5>
+                            <p class="card-text">Gaskets, belts, pumps, and other critical engine parts for all MB models.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">From $85</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="part-card card h-100">
+                        <img src="assets/brake-part.jpg" class="card-img-top part-img" alt="Brake Parts">
+                        <div class="card-body">
+                            <span class="badge badge-original mb-2">Genuine</span>
+                            <h5 class="card-title">Brake System Parts</h5>
+                            <p class="card-text">Rotors, pads, calipers, and sensors for optimal stopping power.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">From $120</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="part-card card h-100">
+                        <img src="assets/suspension-part.jpg" class="card-img-top part-img" alt="Suspension Parts">
+                        <div class="card-body">
+                            <span class="badge badge-original mb-2">Genuine</span>
+                            <h5 class="card-title">Suspension Parts</h5>
+                            <p class="card-text">Control arms, bushings, struts, and shocks for smooth rides.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">From $150</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="part-card card h-100">
+                        <img src="assets/electrical-part.jpg" class="card-img-top part-img" alt="Electrical Parts">
+                        <div class="card-body">
+                            <span class="badge badge-original mb-2">Genuine</span>
+                            <h5 class="card-title">Electrical Components</h5>
+                            <p class="card-text">Sensors, modules, switches, and wiring harnesses.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-primary">From $65</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary px-4">
+                    <i class="bi bi-grid me-2"></i> View All Parts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="assets/customer1.jpg" class="rounded-circle mb-3" width="80" alt="Customer">
+                                        <p class="lead mb-4">"I was impressed by their knowledge and service. The genuine part I bought fixed my C-Class perfectly and came with full warranty."</p>
+                                        <h5>Jean Paul</h5>
+                                        <p class="text-muted">Mercedes C200 Owner</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="assets/customer2.jpg" class="rounded-circle mb-3" width="80" alt="Customer">
+                                        <p class="lead mb-4">"Fast delivery and excellent customer service. They helped me identify the right suspension parts for my GLE when I wasn't sure."</p>
+                                        <h5>Marie Claire</h5>
+                                        <p class="text-muted">Mercedes GLE Owner</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <img src="assets/customer3.jpg" class="rounded-circle mb-3" width="80" alt="Customer">
+                                        <p class="lead mb-4">"As a mechanic, I trust Benz Spare Parts Kigali for all my Mercedes repairs. Their parts are always genuine and reasonably priced."</p>
+                                        <h5>Eric N.</h5>
+                                        <p class="text-muted">Auto Repair Shop Owner</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <h2 class="text-center section-title">Contact Us</h2>
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <i class="bi bi-geo-alt contact-icon"></i>
+                        <h4>Our Location</h4>
+                        <p>KN 78 St, Kigali Heights<br>Kigali, Rwanda</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">View on Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <i class="bi bi-telephone contact-icon"></i>
+                        <h4>Phone Numbers</h4>
+                        <p>+250 788 123 456<br>+250 789 123 456</p>
+                        <a href="tel:+250788123456" class="btn btn-sm btn-outline-primary">Call Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info-card text-center">
+                        <i class="bi bi-envelope contact-icon"></i>
+                        <h4>Email Us</h4>
+                        <p>info@benzparts.rw<br>sales@benzparts.rw</p>
+                        <a href="mailto:info@benzparts.rw" class="btn btn-sm btn-outline-primary">Send Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="map-container rounded shadow overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.490518322039!2d30.06121531532872!3d-1.954246537021208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwNTcnMTUuMyJTIDMwwrAwMyc0OS4xIkU!5e0!3m2!1sen!2srw!4v1620000000000!5m2!1sen!2srw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4">Send Us a Message</h3>
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" id="subject" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">We Supply Parts For</h2>
+            <div class="row align-items-center justify-content-center g-4">
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-a-class.png" alt="A-Class" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-c-class.png" alt="C-Class" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-e-class.png" alt="E-Class" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-s-class.png" alt="S-Class" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-gle.png" alt="GLE" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="assets/benz-g-class.png" alt="G-Class" class="img-fluid" style="height: 60px; width: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="text-white mb-4">Benz Spare Parts Kigali</h4>
+                    <p>Your trusted source for genuine Mercedes-Benz spare parts in Rwanda. Quality parts, expert advice, and professional installation services.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="footer-links">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="footer-links">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="footer-links">Services</a></li>
+                        <li class="mb-2"><a href="#parts" class="footer-links">Spare Parts</a></li>
+                        <li class="mb-2"><a href="#contact" class="footer-links">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-links">Parts Identification</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Professional Installation</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Vehicle Diagnostics</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Maintenance Packages</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Warranty Claims</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Subscribe to get updates on new parts and special offers.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Benz Spare Parts Kigali. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> in Rwanda</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            var backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
+</body>
+</html>

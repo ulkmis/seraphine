@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisruptiveTech | Citizen Science Project Hub</title>
+    
+    <!-- Semantic SEO Metadata -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DisruptiveTech Project Hub",
+        "description": "Multi-granularity collaboration platform for citizen science research",
+        "author": {
+            "@type": "Organization",
+            "name": "MIS Research Team"
+        },
+        "datePublished": "2025-05-26",
+        "applicationCategory": "ResearchPlatform"
+    }
+    </script>
+    
+    <!-- Modern CSS with Dark Mode -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .document-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .document-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <!-- Enhanced Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold gradient-text">DisruptiveTech</span>
+                <span class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded-full">v2.1</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#documents" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Documents</a>
+                <a href="#team" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Team</a>
+                <a href="#timeline" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Timeline</a>
+                <a href="#submission" class="font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Submission</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path id="theme-icon" fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </nav>
+            <button class="md:hidden p-2" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 dark:opacity-5">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                <span class="gradient-text">Multi-Granularity</span><br>
+                Citizen Science Platform
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+                A modern static web hub for collaborative research documentation and project management
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#documents" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition shadow-md hover:shadow-lg">
+                    Explore Documents
+                </a>
+                <a href="#team" class="px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium rounded-lg transition shadow-sm hover:shadow-md">
+                    Meet the Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-6xl">
+        <!-- User Roles Section -->
+        <section id="users" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Project Stakeholders</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Our platform serves multiple user groups with distinct needs and access requirements
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Development Team -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="bg-blue-600 p-4">
+                        <h3 class="text-lg font-semibold text-white">Development Team</h3>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Full document access
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Editing privileges
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Version control
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Instructor -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="bg-purple-600 p-4">
+                        <h3 class="text-lg font-semibold text-white">Instructor</h3>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Evaluation access
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Progress tracking
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Document review
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Client (Scientist) -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="bg-green-600 p-4">
+                        <h3 class="text-lg font-semibold text-white">Client (Scientist)</h3>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Research data access
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Document review
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Undergraduate work links
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Undergraduate Students -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="bg-yellow-600 p-4">
+                        <h3 class="text-lg font-semibold text-white">Undergraduate Students</h3>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Document submission
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Design reference
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Linked analyses
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Document Repository -->
+        <section id="documents" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Document Repository</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    All project documents organized by category and accessibility
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Team Documents -->
+                <div class="document-card bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 p-4 border-b border-blue-200 dark:border-blue-800">
+                        <h3 class="font-semibold text-blue-800 dark:text-blue-200 flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            Team Documents
+                        </h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">Team Contract</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Last updated: 2025-05-20</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">Meeting Notes</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Last updated: 2025-05-25</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Design Documents -->
+                <div class="document-card bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 p-4 border-b border-purple-200 dark:border-purple-800">
+                        <h3 class="font-semibold text-purple-800 dark:text-purple-200 flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            Design Documents
+                        </h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">System Overview</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">PDF, 1.2MB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">User Personas</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">PDF, 0.8MB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">HTA Diagram</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">PDF, 1.5MB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">Database Schema</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">PDF, 0.9MB</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Undergraduate Links -->
+                <div class="document-card bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="bg-green-100 dark:bg-green-900/30 p-4 border-b border-green-200 dark:border-green-800">
+                        <h3 class="font-semibold text-green-800 dark:text-green-200 flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                            Undergraduate Links
+                        </h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">Stakeholder Analysis #1</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">By: John Doe</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">Stakeholder Analysis #2</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">By: Jane Smith</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <div>
+                                    <a href="#" class="font-medium hover:text-blue-600 dark:hover:text-blue-400">User-Task Analysis</a>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">By: Team A</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Development Team</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Meet the MIS students behind this citizen science platform
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Team Member 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center">
+                    <div class="p-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4 overflow-hidden">
+                            <!-- Placeholder for team member photo -->
+                            <svg class="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Alex Johnson</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Project Lead</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">alex.j@disruptivetech.edu</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center">
+                    <div class="p-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4 overflow-hidden">
+                            <svg class="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Maria Garcia</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">UX Designer</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">maria.g@disruptivetech.edu</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center">
+                    <div class="p-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4 overflow-hidden">
+                            <svg class="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Sam Wilson</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Frontend Dev</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">sam.w@disruptivetech.edu</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center">
+                    <div class="p-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4 overflow-hidden">
+                            <svg class="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Taylor Chen</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Backend Dev</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">taylor.c@disruptivetech.edu</p>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden text-center">
+                    <div class="p-6">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-gray-200 dark:bg-gray-700 mb-4 overflow-hidden">
+                            <svg class="h-full w-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Jordan Lee</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Documentation</p>
+                        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">jordan.l@disruptivetech.edu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline & Submission -->
+        <section id="timeline" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-3">Project Timeline</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Key milestones and submission deadlines
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-4 md:left-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-700 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8">
+                    <!-- Milestone 1 -->
+                    <div class="relative flex md:justify-center">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <div class="md:mr-6">
+                                <div class="absolute left-4 md:left-1/2 h-3 w-3 rounded-full bg-blue-500 transform -translate-x-1/2 mt-1.5"></div>
+                                <h3 class="font-semibold text-lg">Initial Website Launch</h3>
+                                <time class="text-sm text-gray-500 dark:text-gray-400">May 15, 2025</time>
+                                <p class="mt-1 text-gray-600 dark:text-gray-300">Homepage with team information and basic structure</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 2 -->
+                    <div class="relative flex md:justify-center">
+                        <div class="md:w-1/2 md:pl-8 md:text-left md:ml-auto">
+                            <div class="md:ml-6">
+                                <div class="absolute left-4 md:left-1/2 h-3 w-3 rounded-full bg-purple-500 transform -translate-x-1/2 mt-1.5"></div>
+                                <h3 class="font-semibold text-lg">Design Documents Due</h3>
+                                <time class="text-sm text-gray-500 dark:text-gray-400">May 25, 2025</time>
+                                <p class="mt-1 text-gray-600 dark:text-gray-300">All core design documents uploaded and linked</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 3 -->
+                    <div class="relative flex md:justify-center">
+                        <div class="md:w-1/2 md:pr-8 md:text-right">
+                            <div class="md:mr-6">
+                                <div class="absolute left-4 md:left-1/2 h-3 w-3 rounded-full bg-green-500 transform -translate-x-1/2 mt-1.5"></div>
+                                <h3 class="font-semibold text-lg">Undergraduate Links</h3>
+                                <time class="text-sm text-gray-500 dark:text-gray-400">June 1, 2025</time>
+                                <p class="mt-1 text-gray-600 dark:text-gray-300">Stakeholder analyses linked and reviewed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Milestone 4 -->
+                    <div class="relative flex md:justify-center">
+                        <div class="md:w-1/2 md:pl-8 md:text-left md:ml-auto">
+                            <div class="md:ml-6">
+                                <div class="absolute left-4 md:left-1/2 h-3 w-3 rounded-full bg-yellow-500 transform -translate-x-1/2 mt-1.5"></div>
+                                <h3 class="font-semibold text-lg">Final Submission</h3>
+                                <time class="text-sm text-gray-500 dark:text-gray-400">June 10, 2025</time>
+                                <p class="mt-1 text-gray-600 dark:text-gray-300">All files uploaded to Google Classroom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submission Details -->
+        <section id="submission" class="mb-16 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-3">Submission Requirements</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Complete these deliverables by the final deadline
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold">Printed Documentation</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Hard copies of all project documents for evaluation</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold">PowerPoint Presentation</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Covering all aspects of the project development process</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-full mr-4">
+                            <svg class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold">Website Files</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Zipped and uploaded to Google Classroom</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold gradient-text">DisruptiveTech</a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Multi-Granularity Citizen Science Platform</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                        <span class="sr-only">Google Classroom</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>© 2025 DisruptiveTech Team. All rights reserved.</p>
+                <p class="mt-1">This is a static website for academic purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 hidden flex-col items-center justify-center p-6">
+        <button id="mobile-menu-close" class="absolute top-4 right-4 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center space-y-6">
+            <a href="#documents" class="text-2xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Documents</a>
+            <a href="#team" class="text-2xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Team</a>
+            <a href="#timeline" class="text-2xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Timeline</a>
+            <a href="#submission" class="text-2xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Submission</a>
+            <button id="mobile-theme-toggle" class="p-3 rounded-full bg-gray-100 dark:bg-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path id="mobile-theme-icon" fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm-9.072 0a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-13 0a1 1 0 100-2H3a1 1 0 100 2h1zm10.071-7.071a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM5.636 5.636a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            // Theme toggle logic
+            const themeToggle = document.getElementById('mobile-theme-toggle');
+            const themeIcon = document.getElementById('mobile-theme-icon');
+    
+            themeToggle?.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+    
+                // Optionally update icon (e.g., sun/moon switch)
+                themeIcon.setAttribute('d', isDark
+                    ? "M17.293 13.293A8 8 0 1 1 10.707 2.707a6 6 0 1 0 6.586 10.586z"
+                    : "M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z");
+            });
+    
+            // Mobile menu toggle logic
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    
+            mobileMenuToggle?.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+            });
+    
+            mobileMenuClose?.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An advanced citizen science platform using multi-granularity frameworks for collaborative research." />
+  <meta name="keywords" content="Citizen Science, Research Platform, Collaborative Framework, Multi-Granularity, DisruptiveTech" />
+  <meta name="author" content="MIS Research Team" />
+  <meta name="theme-color" content="#3b82f6" />
+
+  <!-- Social Meta Tags -->
+  <meta property="og:title" content="DisruptiveTech | Multi-Granularity Citizen Science Platform" />
+  <meta property="og:description" content="Advanced multi-granularity framework for collaborative research documentation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://yourdomain.com/assets/social-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DisruptiveTech | Multi-Granularity Citizen Science Platform" />
+  <meta name="twitter:description" content="Advanced multi-granularity framework for collaborative research documentation" />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/social-image.png" />
+
+  <title>DisruptiveTech | Multi-Granularity Citizen Science Platform</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DisruptiveTech Citizen Science Platform",
+    "description": "Advanced multi-granularity framework for collaborative research documentation",
+    "url": "https://yourdomain.com",
+    "author": {
+      "@type": "Organization",
+      "name": "MIS Research Team"
+    },
+    "datePublished": "2025-05-26",
+    "applicationCategory": "ResearchPlatform"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    .prose { max-width: 80ch; }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    }
+    /* Smooth scrolling fallback for older browsers */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Loading Spinner */
+    #loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3b82f6;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      z-index: 1000;
+      display: none;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans min-h-screen flex flex-col transition-colors duration-300" >
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" role="alert" aria-live="assertive" aria-label="Loading content"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800" role="banner">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold gradient-text" aria-label="Go to homepage">DisruptiveTech</a>
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <!-- Navigation -->
+      <nav id="nav-menu" class="hidden md:flex space-x-8" role="navigation" aria-label="Primary Navigation">
+        <a href="#overview" class="hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Overview</a>
+        <a href="#requirements" class="hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Requirements</a>
+        <a href="#documents" class="hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Documents</a>
+        <a href="#implementation" class="hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Implementation</a>
+        <a href="#team" class="hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Team</a>
+      </nav>
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" aria-pressed="false" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <!-- Sun Icon for Light Mode -->
+        <svg id="theme-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" >
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 2.03a1 1 0 011.415 1.415l-.708.707a1 1 0 11-1.414-1.414l.707-.708zM17 9a1 1 0 110 2h-1a1 1 0 110-2h1zm-3.293 5.293a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-2.03a1 1 0 011.415-1.415l.707.707a1 1 0 11-1.414 1.414l-.708-.707zM4 11a1 1 0 110-2H3a1 1 0 110 2h1zm3.293-5.293a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707z" clip-rule="evenodd" />
+          <circle cx="10" cy="10" r="3" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="overview" class="flex-grow max-w-4xl mx-auto p-6 prose prose-lg dark:prose-invert">
+    <h1 class="text-4xl font-extrabold gradient-text mb-4">Multi-Granularity Framework for Citizen Science</h1>
+    <p>DisruptiveTech provides a next-generation collaborative research documentation platform enabling citizen scientists to contribute at varying levels of granularity. Our platform integrates user-friendly data capture, advanced analytics, and seamless sharing for accelerating scientific discovery.</p>
+  </section>
+
+  <!-- Requirements Section -->
+  <section id="requirements" class="max-w-4xl mx-auto p-6 prose prose-lg dark:prose-invert">
+    <h2 class="text-3xl font-bold mb-4">Requirements</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Multi-layered data input capabilities from casual observations to detailed experiment data</li>
+      <li>Secure user authentication with role-based access control</li>
+      <li>Real-time collaboration tools and version control</li>
+      <li>Integration with existing scientific databases and APIs</li>
+      <li>Responsive design for accessibility on desktop and mobile devices</li>
+    </ul>
+  </section>
+
+  <!-- Documents Section -->
+  <section id="documents" class="max-w-4xl mx-auto p-6 prose prose-lg dark:prose-invert">
+    <h2 class="text-3xl font-bold mb-4">Documents</h2>
+    <p>All project documentation, research papers, and guidelines are accessible here for contributors and administrators. Our platform supports rich-text documents, spreadsheets, and multimedia attachments to ensure comprehensive project records.</p>
+  </section>
+
+  <!-- Implementation Section -->
+  <section id="implementation" class="max-w-4xl mx-auto p-6 prose prose-lg dark:prose-invert">
+    <h2 class="text-3xl font-bold mb-4">Implementation</h2>
+    <p>The platform utilizes a microservices architecture with scalable cloud infrastructure. Key technologies include React for the frontend, Node.js with Express for backend APIs, and PostgreSQL for reliable data storage. Security and privacy are ensured through OAuth 2.0, encrypted data transfer, and regular audits.</p>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="max-w-4xl mx-auto p-6 prose prose-lg dark:prose-invert">
+    <h2 class="text-3xl font-bold mb-4">Our Team</h2>
+    <p>Our team consists of experienced researchers, developers, and data scientists committed to building an open, accessible, and powerful citizen science platform.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-800 py-6 mt-auto text-center text-sm text-gray-600 dark:text-gray-400">
+    &copy; 2025 DisruptiveTech. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      menuToggle.setAttribute('aria-expanded', !expanded);
+      navMenu.classList.toggle('hidden');
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    // On page load, apply saved theme or system preference
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+      themeToggle.setAttribute('aria-pressed', 'true');
+      setIcon('dark');
+    } else {
+      setIcon('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      themeToggle.setAttribute('aria-pressed', isDark);
+      localStorage.theme = isDark ? 'dark' : 'light';
+      setIcon(isDark ? 'dark' : 'light');
+    });
+
+    function setIcon(mode) {
+      if (mode === 'dark') {
+        themeIcon.innerHTML = `
+          <path fill="currentColor" d="M17.293 13.293a8 8 0 01-11.586 0 8 8 0 0111.586 0z"/>
+        `; // moon icon simplified
+      } else {
+        themeIcon.innerHTML = `
+          <path fill="currentColor" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 2.03a1 1 0 011.415 1.415l-.708.707a1 1 0 11-1.414-1.414l.707-.708zM17 9a1 1 0 110 2h-1a1 1 0 110-2h1zm-3.293 5.293a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-2.03a1 1 0 011.415-1.415l.707.707a1 1 0 11-1.414 1.414l-.708-.707zM4 11a1 1 0 110-2H3a1 1 0 110 2h1zm3.293-5.293a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707z" />
+          <circle cx="10" cy="10" r="3" />
+        `; // sun icon
+      }
+    }
+
+    // Optional: Show loading spinner on page load for SPA feel
+    const loadingSpinner = document.getElementById('loading-spinner');
+    window.addEventListener('load', () => {
+      loadingSpinner.style.display = 'none';
+    });
+    loadingSpinner.style.display = 'block';
+  </script>
+</body>
+</html>
